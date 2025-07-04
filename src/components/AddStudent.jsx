@@ -7,6 +7,7 @@ import "./AddStudent.css";
 const AddStudent = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("")
   const [gpa, setGpa] = useState(0.0);
   const [imageUrl, setImageUrl] = useState("");
   const navigate = useNavigate();
@@ -57,10 +58,15 @@ const AddStudent = () => {
         id="email"
         type="text"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => {
+        const input = e.target.value;
+        setEmail(input);
+        setEmailError(validateEmail(input) ? "" : "Please enter a valid email address.");
+        }}
         placeholder="email"
         required
       />
+      {emailError && <p style={{ color: "red", fontSize: "0.9rem" }}>{emailError}</p>}
 
       <label htmlFor="gpa">gpa</label>
       <input
@@ -87,4 +93,11 @@ const AddStudent = () => {
     </form>
   );
 };
+
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+
 export default AddStudent;
