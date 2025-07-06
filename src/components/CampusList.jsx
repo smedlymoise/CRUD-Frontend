@@ -31,7 +31,6 @@ const Campus = () => {
 
   return (
     <div className="campus-container">
-      {/* ✅ Add Campus Button */}
       <Link to="/add-campus">
         <button className="add-campus-button">Add Campus</button>
       </Link>
@@ -45,7 +44,23 @@ const Campus = () => {
               key={campus.id}
               onClick={() => navigate(`/campuses/${campus.id}`)}
             >
-              <div className="campus-name">{campus.name}</div>
+              <div className="campus-image-placeholder">
+                {/* Use campus.imageUrl if available, otherwise show "No Image" */}
+                {campus.imageUrl ? (
+                  <img src={campus.imageUrl} alt={campus.name} />
+                ) : (
+                  <span>No Image</span>
+                )}
+              </div>
+              <h3>{campus.name}</h3>
+              {/* Display campus address if available */}
+              {campus.address && (
+                <p className="campus-address">{campus.address}</p>
+              )}
+              {/* Display campus description if available */}
+              {campus.description && (
+                <p className="campus-description">{campus.description}</p>
+              )}
               <button
                 className="trash-icon"
                 onClick={(e) => {
