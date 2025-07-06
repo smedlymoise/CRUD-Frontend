@@ -31,9 +31,12 @@ const Campus = () => {
 
   return (
     <div className="campus-container">
-      <Link to="/add-campus">
-        <button className="add-campus-button">Add Campus</button>
-      </Link>
+      <div className="campus-header">
+        <h1 className="page-title">All Campuses</h1>
+        <Link to="/add-campus">
+          <button className="add-campus-button">Add Campus</button>
+        </Link>
+      </div>
 
       {campuses.length === 0 ? (
         <p className="no-campus">There are no campuses in the database.</p>
@@ -45,7 +48,6 @@ const Campus = () => {
               onClick={() => navigate(`/campuses/${campus.id}`)}
             >
               <div className="campus-image-placeholder">
-                {/* Use campus.imageUrl if available, otherwise show "No Image" */}
                 {campus.imageUrl ? (
                   <img src={campus.imageUrl} alt={campus.name} />
                 ) : (
@@ -53,11 +55,9 @@ const Campus = () => {
                 )}
               </div>
               <h3>{campus.name}</h3>
-              {/* Display campus address if available */}
               {campus.address && (
                 <p className="campus-address">{campus.address}</p>
               )}
-              {/* Display campus description if available */}
               {campus.description && (
                 <p className="campus-description">{campus.description}</p>
               )}

@@ -5,16 +5,51 @@
   align-items: center;
   max-width: 1200px;
   margin: auto;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.campus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.add-campus-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-campus-button:hover {
+  background-color: #2980b9;
 }
 
 ul {
   list-style: none;
   padding: 0;
-  margin: 2rem auto;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   max-width: 1200px;
+  width: 100%;
 }
 
 li {
@@ -94,27 +129,10 @@ li h3 {
   text-align: center;
 }
 
-.add-campus-button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 2rem;
-  transition: background-color 0.2s ease;
-  align-self: flex-end;
-  margin-right: calc((100vw - min(1200px, 100%)) / 2);
-}
-
-.add-campus-button:hover {
-  background-color: #2980b9;
-}
-
 .no-campus {
   font-size: 1.2rem;
   color: #888;
+  margin-top: 2rem;
 }
 
 .trash-icon {
@@ -140,13 +158,7 @@ li:hover .trash-icon {
 
 @media (max-width: 1200px) {
   ul {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-}
-
-@media (max-width: 992px) {
-  ul {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -158,9 +170,6 @@ li:hover .trash-icon {
   .campus-container {
     padding: 1.5rem 0.5rem;
   }
-  .add-campus-button {
-    margin-right: 1rem;
-  }
 }
 
 @media (max-width: 576px) {
@@ -170,8 +179,5 @@ li:hover .trash-icon {
   }
   li {
     min-height: auto;
-  }
-  .add-campus-button {
-    margin-right: 0.5rem;
   }
 }
