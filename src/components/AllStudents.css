@@ -1,0 +1,74 @@
+/* Container for the entire All Students page */
+.all-students-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Page title styling */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  color: #2c3e50;
+}
+
+/* Grid layout for student cards */
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual student card styling */
+.student-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Student profile image */
+.student-list-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+}
+
+/* Student name */
+.student-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3498db;
+  text-decoration: none;
+}
+
+/* Student email */
+.student-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Link styling reset */
+.student-card a {
+  text-decoration: none;
+}
+
+.student-card a:hover h3 {
+  text-decoration: underline;
+}
