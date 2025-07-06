@@ -1,0 +1,46 @@
+.single-student-info p {
+  margin-top: 1rem;
+  max-width: 200px;
+  border-radius: 8px;
+  align-self: center;
+}
+
+.student-card {
+  position: relative;
+  padding: 1rem 2rem;
+  width: 300px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-card:hover {
+  background-color: #e0f0ff;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.student-trash-icon {
+  margin-left: 10px;
+  color: #888;
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.student-card:hover .student-trash-icon {
+  opacity: 1;
+}
+
+.student-trash-icon:hover {
+  color: #e74c3c;
+}

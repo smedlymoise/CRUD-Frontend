@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CampusList.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Campus = () => {
   const [campuses, setCampuses] = useState([]);
@@ -9,10 +9,8 @@ const Campus = () => {
 
   const getAllCampuses = async () => {
     try {
-      const getAllCampuses = await axios.get(
-        "http://localhost:8080/api/campuses"
-      );
-      setCampuses(getAllCampuses.data);
+      const response = await axios.get("http://localhost:8080/api/campuses");
+      setCampuses(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -24,9 +22,7 @@ const Campus = () => {
 
   const handleDelete = async (id) => {
     try {
-      const deleteCampus = await axios.delete(
-        `http://localhost:8080/api/campuses/${id}`
-      );
+      await axios.delete(`http://localhost:8080/api/campuses/${id}`);
       await getAllCampuses();
     } catch (error) {
       console.error(error);
@@ -35,25 +31,30 @@ const Campus = () => {
 
   return (
     <div className="campus-container">
+      {/* ✅ Add Campus Button */}
+      <Link to="/add-campus">
+        <button className="add-campus-button">Add Campus</button>
+      </Link>
+
       {campuses.length === 0 ? (
         <p className="no-campus">There are no campuses in the database.</p>
       ) : (
-        <ul className="campus-list">
+        <ul>
           {campuses.map((campus) => (
             <li
               key={campus.id}
-              className="campus-item"
               onClick={() => navigate(`/campuses/${campus.id}`)}
             >
-              {campus.name}
-              <p
+              <div className="campus-name">{campus.name}</div>
+              <button
+                className="trash-icon"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleDelete(campus.id);
                 }}
               >
                 🗑️
-              </p>
+              </button>
             </li>
           ))}
         </ul>
