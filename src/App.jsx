@@ -13,13 +13,14 @@ import AddStudent from "./components/AddStudent";
 import SingleStudent from "./components/SingleStudent";
 import AllStudents from "./components/AllStudents";
 
+import { AuthProvider } from "./context/AuthContext";
+
 const App = () => {
   return (
     <div className="app-container">
       <NavBar />
       <div className="app-content">
         <Routes>
-
           {/* Home Page */}
           <Route path="/" element={<Home />} />
 
@@ -75,7 +76,6 @@ const App = () => {
               </>
             }
           />
-
         </Routes>
       </div>
     </div>
@@ -85,6 +85,8 @@ const App = () => {
 const root = createRoot(document.getElementById("root"));
 root.render(
   <Router>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </Router>
 );
